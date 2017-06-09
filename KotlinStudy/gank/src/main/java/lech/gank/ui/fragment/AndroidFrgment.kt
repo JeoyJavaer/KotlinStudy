@@ -5,5 +5,12 @@ package lech.gank.ui.fragment
  * Description
  * Others
  */
-class AndroidFrgment {
+class AndroidFrgment :ArticleFragment(){
+
+    companion object{
+        fun newInstance():AndroidFrgment {
+            return AndroidFrgment()
+        }
+    }
+
 }

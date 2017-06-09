@@ -1,6 +1,6 @@
 package lech.weatherapp.model
 
-import lech.weatherapp.db.MyDatabase
+import lech.kotlinstudy.db.MyDatabase
 import kotlin.properties.Delegates
 
 /**

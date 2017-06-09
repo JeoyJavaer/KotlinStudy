@@ -1,4 +1,4 @@
-package lech.weatherapp.db
+package lech.kotlinstudy.db
 
 /**
  * Created by Android_61 on 2017/6/8.

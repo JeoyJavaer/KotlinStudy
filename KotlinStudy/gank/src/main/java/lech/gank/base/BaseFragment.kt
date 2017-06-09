@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import lech.gamk.R
 import lech.gank.net.Api
 import lech.gank.repository.Article
 import lech.gank.repository.Result
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_base.*
+import org.jetbrains.anko.async
 
 /**
  * Created by Android_61 on 2017/6/8.
@@ -23,9 +24,9 @@ abstract class BaseFragment : Fragment() {
     val TAG = BaseFragment::class.java.simpleName
     var pageSize = 10
     var pageNumber = 1
-    var isRfresh = false
+    var isRefresh = false
 
-    var activity: Activity? = null
+    var mActivity: Activity? = null
     var rootView: View? = null
 
 
@@ -34,16 +35,16 @@ abstract class BaseFragment : Fragment() {
             rootView = inflater!!.inflate(R.layout.fragment_base, container, false)
         }
 
-        return rootView
+        return rootView!!
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
 
-        kotlinx.android.synthetic.main.fragment_article_list.swipeLayout.setOnRefreshListener {
+        swipeLayout.setOnRefreshListener {
             pageNumber = 1
-            isRfresh = true
+            isRefresh = true
             loadData(pageSize, pageNumber)
         }
 
@@ -75,13 +76,13 @@ abstract class BaseFragment : Fragment() {
 
     override fun onAttach(activity: Activity?) {
         super.onAttach(activity)
-        this.activity = activity
+        this.mActivity = activity
     }
 
 
     override fun onDetach() {
         super.onDetach()
-        this.activity = null
+        this.mActivity = null
     }
 
     abstract fun loadSuccess(data: List<Article>)

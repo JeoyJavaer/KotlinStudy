@@ -6,15 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebChromeClient.FileChooserParams.parseResult
+import lech.gank.R
 import lech.gank.ui.activity.MainActivity
-import lech.gank.utils.*
-import kotlinx.android.synthetic.main.fragment_article_container.*
 import lech.gank.net.Api
 import lech.gank.repository.PublishedDate
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import java.sql.Date
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,15 +47,14 @@ class ArticleContainerFragment : Fragment() {
         api.getPublishedDAte()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(
-                        {
-                            result ->
-                            parseResult(result)
-                        }
-
-                        {}
-                        { onComplete() }
-                )
+//                .subscribe(
+//                        {
+//                            result ->parseResult(result)
+//                        }
+//
+//                        {}
+//                        { onComplete() }
+//                )
 
     }
 
@@ -84,6 +80,15 @@ class ArticleContainerFragment : Fragment() {
     private fun setUpView() {
         val fragmetns = arrayListOf<Fragment>()
         fragmetns.add(RecommendFragment.newInstance(published!!))
+        fragmetns.add(AndroidFrgment.newInstance())
+        fragmetns.add(IOSFragment.newInstance())
+        fragmetns.add(WebFragment.newInstance())
+        fragmetns.add(VideoFragment.newInstance())
+        fragmetns.add(ExpandFragment.newInstance())
+
+        val titles=resources.getString(R.array.title)
+
+
 
     }
 

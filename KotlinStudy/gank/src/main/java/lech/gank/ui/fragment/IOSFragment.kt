@@ -7,17 +7,15 @@ import lech.gank.common.Type
  * Description
  * Others
  */
-class VideoFragment : ArticleFragment(){
-
-
+class IOSFragment :ArticleFragment(){
     companion object{
-        fun  newInstance():VideoFragment{
-            return VideoFragment()
+        fun newInstance():IOSFragment {
+            return IOSFragment()
         }
     }
 
-
     override fun getType(): String {
-        return Type.休息视频.name
+        return Type.iOS.name
     }
+
 }

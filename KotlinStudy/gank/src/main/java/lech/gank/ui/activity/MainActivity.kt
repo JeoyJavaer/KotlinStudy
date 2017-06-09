@@ -3,10 +3,11 @@ package lech.gank.ui.activity
 import android.app.Fragment
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import lech.gank.R
 import lech.gank.ui.fragment.ArticleContainerFragment
 import lech.gank.ui.fragment.HistoryFragment
 import lech.gank.ui.fragment.WelfareFragment
+import org.jetbrains.anko.async
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     var lastInex=-1

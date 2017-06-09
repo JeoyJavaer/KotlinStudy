@@ -1,11 +1,11 @@
-package lech.weatherapp.domain
+package lech.kotlinstudy.domain
 
 /**
  * Created by Android_61 on 2017/6/6.
  * Description
  * Others
  */
-data class ForecastList(val city: String, val country: String, val dailyForecast: List<lech.weatherapp.domain.Forecast>) {
+data class ForecastList(val city: String, val country: String, val dailyForecast: List<Forecast>) {
     operator fun get(position: Int)=dailyForecast[position]
     fun size()=dailyForecast.size
 }

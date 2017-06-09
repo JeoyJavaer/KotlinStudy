@@ -6,4 +6,6 @@ package lech.gank.ui.fragment
  * Others
  */
 class NewFragment {
+
+
 }

@@ -1,7 +1,7 @@
 package lech.weatherapp.net
 
 import com.google.gson.Gson
-import lech.weatherapp.data.ForecastResult
+import lech.kotlinstudy.data.ForecastResult
 import java.net.URL
 
 /**
@@ -16,8 +16,8 @@ public class ForecastRequest(val zipCode: String) {
         private val COMPLETE_URL = "$URL&APPID=$APP_ID&q="
     }
 
-    fun execute():ForecastResult{
+    fun execute(): ForecastResult {
      val forecastJsonStr= URL(COMPLETE_URL+zipCode).readText()
-        return Gson().fromJson(forecastJsonStr,ForecastResult::class.java)
+        return Gson().fromJson(forecastJsonStr, ForecastResult::class.java)
     }
 }
