@@ -1,4 +1,4 @@
-package lech.gamk.base
+package lech.gank.base
 
 import android.support.v7.app.AppCompatActivity
 

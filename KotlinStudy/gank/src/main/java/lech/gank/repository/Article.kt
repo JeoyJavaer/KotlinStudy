@@ -1,4 +1,4 @@
-package lech.gamk.repository
+package lech.gank.repository
 
 /**
  * Created by Android_61 on 2017/6/8.

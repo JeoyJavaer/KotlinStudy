@@ -1,4 +1,4 @@
-package lech.gamk.base
+package lech.gank.base
 
 import android.app.Activity
 import android.app.Fragment
@@ -6,14 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebChromeClient.FileChooserParams.parseResult
 import lech.gamk.R
-import kotlinx.android.synthetic.main.fragment_article_list.*
-import lech.gamk.net.Api
-import lech.gamk.repository.Article
-import lech.gamk.repository.Result
-import rx.Scheduler
-import rx.Subscriber
+import lech.gank.net.Api
+import lech.gank.repository.Article
+import lech.gank.repository.Result
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -28,6 +24,7 @@ abstract class BaseFragment : Fragment() {
     var pageSize = 10
     var pageNumber = 1
     var isRfresh = false
+
     var activity: Activity? = null
     var rootView: View? = null
 
@@ -44,7 +41,7 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
 
-        swipeLayout.setOnRefreshListener {
+        kotlinx.android.synthetic.main.fragment_article_list.swipeLayout.setOnRefreshListener {
             pageNumber = 1
             isRfresh = true
             loadData(pageSize, pageNumber)
@@ -54,7 +51,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun loadData(pageSize: Int, pageNumber: Int) {
-        val api = Api.Factory.create()
+        val api = Api.create()
         api.getData(getType(), pageSize, pageNumber)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

@@ -1,7 +1,7 @@
-package lech.gamk.net
+package lech.gank.net
 
-import lech.gamk.repository.PublishedDate
-import lech.gamk.repository.Result
+import lech.gank.repository.PublishedDate
+import lech.gank.repository.Result
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,24 +32,24 @@ interface Api {
     )
 
     @GET("api/day/{date}")
-    fun getDateByDate(@Path("date")date:String):Observable<ResponseBody>
+    fun getDateByDate(@Path("date")date:String): Observable<ResponseBody>
 
 
     @GET("history")
-    fun getHistory():Observable<ResponseBody>
+    fun getHistory(): Observable<ResponseBody>
 
     @GET("api/day/history")
-    fun getPublishedDAte():Observable<PublishedDate>
+    fun getPublishedDAte(): Observable<PublishedDate>
 
 
     companion object Factory{
-        fun create():Api{
-            val logging=HttpLoggingInterceptor()
-            logging.level=HttpLoggingInterceptor.Level.BASIC
+        fun create(): Api {
+            val logging= HttpLoggingInterceptor()
+            logging.level= HttpLoggingInterceptor.Level.BASIC
             val client = OkHttpClient.Builder().addInterceptor(logging).build()
 
 
-            val retrofit=Retrofit.Builder()
+            val retrofit= Retrofit.Builder()
                     .client(client)
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .baseUrl("http://gank.io/")

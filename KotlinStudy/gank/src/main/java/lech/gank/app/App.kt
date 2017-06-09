@@ -1,4 +1,4 @@
-package lech.gamk.app
+package lech.gank.app
 
 import android.app.Application
 
@@ -7,7 +7,7 @@ import android.app.Application
  * Description
  * Others
  */
-class App :Application(){
+class App : Application(){
 
     override fun onCreate() {
         super.onCreate()
