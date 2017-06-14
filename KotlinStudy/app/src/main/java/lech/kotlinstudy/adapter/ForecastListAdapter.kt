@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_forecast.view.*
 import lech.kotlinstudy.R
 import lech.kotlinstudy.domain.Forecast
@@ -52,11 +53,12 @@ class ForecastListAdapter(val weakForecast: ForecastList, val itemClick:(Forecas
 //                maxTemperatureView.text = "${high.toString()}"
 //                minTemperatureView.text = "${low.toString()}"
 //                itemView.setOnClickListener { itemClick(forecast) }
-
+                Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
                 itemView.date.text=date
                 itemView.description.text=description
                 itemView.maxTemperature.text="${high.toString()}"
-
+                itemView.minTemperature.text = "${low.toString()}"
+                itemView.setOnClickListener { itemClick(forecast) }
             }
         }
     }
