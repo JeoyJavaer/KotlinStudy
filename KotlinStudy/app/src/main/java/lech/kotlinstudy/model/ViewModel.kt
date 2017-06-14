@@ -2,6 +2,7 @@ package lech.weatherapp.model
 
 import lech.kotlinstudy.db.MyDatabase
 
+
 /**
  * Created by Android_61 on 2017/6/8.
  * Description
