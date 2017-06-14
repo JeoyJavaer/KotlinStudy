@@ -1,6 +1,7 @@
 package lech.kotlinstudy
 
 import android.app.Application
+import lech.kotlinstudy.delegate.DelegateExt
 import kotlin.properties.Delegates
 
 /**
@@ -13,6 +14,7 @@ class App : Application(){
 //        private var instance:Application?=null
 //        fun instance()= instance!!
         var instance: App by Delegates.notNull()
+        var  newInstance:App by DelegateExt.notNullSingleValue()
 
     }
 
@@ -24,6 +26,7 @@ class App : Application(){
     override fun onCreate() {
         super.onCreate()
         instance =this
+        newInstance=this
 //        val  db=database.writableDatabase
     }
 

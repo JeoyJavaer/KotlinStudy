@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_forecast.view.*
 import lech.kotlinstudy.R
 import lech.kotlinstudy.domain.Forecast
 import lech.kotlinstudy.domain.ForecastList
 import lech.weatherapp.extension.ctx
+import kotlinx.android.synthetic.main.item_forecast.view.*
 /**
  * Created by Android_61 on 2017/6/6.
  * Description
