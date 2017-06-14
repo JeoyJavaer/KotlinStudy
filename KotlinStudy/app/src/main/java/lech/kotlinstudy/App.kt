@@ -1,7 +1,6 @@
 package lech.kotlinstudy
 
 import android.app.Application
-import android.database.sqlite.SQLiteOpenHelper
 import kotlin.properties.Delegates
 
 /**
@@ -18,14 +17,14 @@ class App : Application(){
     }
 
 
-    val database: SQLiteOpenHelper by lazy {
-        MyDatabaseHelper(applicationContext)
-    }
+//    val database: SQLiteOpenHelper by lazy {
+//        MyDatabaseHelper(applicationContext)
+//    }
 
     override fun onCreate() {
         super.onCreate()
         instance =this
-        val  db=database.writableDatabase
+//        val  db=database.writableDatabase
     }
 
 }
