@@ -9,18 +9,18 @@ import lech.kotlinstudy.model.DayForecast
  * Others
  */
 class ForecastDb(
-    val forecastDbHelper:ForecastDbHelper=ForecastDbHelper.instance,
-    val dateManager :DbDataMapper=DbDataMapper()){
+        val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.instance,
+        val dateManager: DbDataMapper = DbDataMapper()) {
 
 
+    fun requestForecastByZipCode(zipCode: Long, date: Long) = forecastDbHelper.use { }
 
-    fun requestForecastByZipCode(zipCode:Long,date:Long)=forecastDbHelper.use{ }
+    val dailyRequest = "${DayForecastTable.CITY_ID}=?" + "AND ${DayForecastTable.DATE} >=?"
 
-    val dailyRequest="${DayForecastTable.CITY_ID}=?"+"AND ${DayForecastTable.DATE} >=?"
+    val dailyForecast = select(DayForecastTable.NAME).whereSimle(dailyRequest, ZipCode.toString(), date.toString()).parseList { DayForecast(HashMap(it)) }
 
-    val dailyForecast=select(DayForecastTable.NAME).whereSimle(dailyRequest,ZipCode.toString(),date.toString()).parseList{DayForecast(HashMap(it))}
-
-
+    val dailyRequest1 = "${DayForecastTable.CITY_ID}={id}" + "AND ${DayForecastTable.DATE}?={date}"
+    val dailyForecast1 = select(DayForecastTable.NAME).where(dailyRequest1, "id" to zipCode, "date" to date).parseList { DayForecast(HashMap(it)) }
 
 
 }
