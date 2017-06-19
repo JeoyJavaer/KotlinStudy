@@ -8,7 +8,7 @@ import com.squareup.picasso.Picasso
 import lech.kotlinstudy.R
 import lech.kotlinstudy.domain.Forecast
 import lech.kotlinstudy.domain.ForecastList
-import lech.weatherapp.extension.ctx
+import lech.kotlinstudy.extension.ctx
 import kotlinx.android.synthetic.main.item_forecast.view.*
 /**
  * Created by Android_61 on 2017/6/6.

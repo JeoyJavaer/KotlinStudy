@@ -1,6 +1,7 @@
 package lech.kotlinstudy.db
 
 import lech.kotlinstudy.R.id.date
+import lech.kotlinstudy.domain.ForecastDataSource
 import lech.kotlinstudy.model.DayForecast
 
 /**
@@ -10,10 +11,10 @@ import lech.kotlinstudy.model.DayForecast
  */
 class ForecastDb(
         val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.instance,
-        val dateManager: DbDataMapper = DbDataMapper()) {
+        val dateManager: DbDataMapper = DbDataMapper()):ForecastDataSource {
 
 
-    fun requestForecastByZipCode(zipCode: Long, date: Long) = forecastDbHelper.use { }
+    override fun requestForecastByZipCode(zipCode: Long, date: Long) = forecastDbHelper.use { }
 
     val dailyRequest = "${DayForecastTable.CITY_ID}=?" + "AND ${DayForecastTable.DATE} >=?"
 
