@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_base.*
+import lech.gank.R
 import lech.gank.net.Api
 import lech.gank.repository.Article
 import lech.gank.repository.Result
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_base.*
-import org.jetbrains.anko.async
 
 /**
  * Created by Android_61 on 2017/6/8.

@@ -11,17 +11,16 @@ import lech.gank.ui.fragment.ProgressFragment
 class Utils {
 
 
-
-    fun AppCompatActivity.showProgress(){
-        val dialog=ProgressFragment.newInstance()
-        dialog.show(fragmentManager,ProgressFragment::class.java.simpleName)
+    fun AppCompatActivity.showProgress() {
+        val dialog = ProgressFragment.newInstance()
+        dialog.show(fragmentManager, ProgressFragment::class.java.simpleName)
     }
 
-    fun AppCompatActivity.dismissProgress(){
-        (fragmentManager.findFragmentByTag(ProgressFragment::class.java.simpleName)as ProgressFragment?)?.dismiss()
+    fun AppCompatActivity.dismissProgress() {
+        (fragmentManager.findFragmentByTag(ProgressFragment::class.java.simpleName) as ProgressFragment?)?.dismiss()
     }
 
-    fun String.isEmpty(str:String):Boolean{
-        return str==null||str==""
+    fun String.isEmpty(str: String): Boolean {
+        return str == null || str == ""
     }
 }

@@ -9,11 +9,11 @@ import lech.gank.ui.fragment.HistoryFragment
 import lech.gank.ui.fragment.WelfareFragment
 
 class MainActivity : AppCompatActivity() {
-    var lastInex=-1
-    var lastFragment:Fragment?=null
-    var articleContainerFragment: ArticleContainerFragment?=null
-    var historyFragment: HistoryFragment?=null
-    var girlFragment: WelfareFragment?=null
+    var lastIndex = -1
+    var lastFragment: Fragment? = null
+    var articleContainerFragment: ArticleContainerFragment? = null
+    var historyFragment: HistoryFragment? = null
+    var girlFragment: WelfareFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,35 +22,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeTab(position: Int) {
-        if (lastInex==position) return
+        if (lastIndex == position) return
 
-        lastInex=position
-        val  frgmentManager=fragmentManager
-        val ft=frgmentManager.beginTransaction()
+        lastIndex = position
+        val fragmentManager = fragmentManager
+        val ft = fragmentManager.beginTransaction()
         if (lastFragment != null) {
             ft.hide(lastFragment)
         }
 
-        when(position){
-            0 ->{
-                articleContainerFragment =frgmentManager.findFragmentByTag(ArticleContainerFragment::class.java.simpleName) as ArticleContainerFragment?
+        when (position) {
+            0 -> {
+                articleContainerFragment = fragmentManager.findFragmentByTag(ArticleContainerFragment::class.java.simpleName) as ArticleContainerFragment?
                 if (articleContainerFragment == null) {
-                    articleContainerFragment=ArticleContainerFragment.newInstance()
+                    articleContainerFragment = ArticleContainerFragment.newInstance()
                 } else {
 
                 }
             }
 
-            1 ->{
+            1 -> {
 
             }
 
-            2 ->{
+            2 -> {
 
             }
-
-
-
 
 
         }
