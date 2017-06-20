@@ -20,3 +20,14 @@ fun SQLiteDatabase.clear(tableName: String) {
 
 
 //fun <K, V : Any> MutableMap<K, V?>.toVarargArray(): Array<out Pair<K, V>>=map({ Pair(it.key, it.value!!) }).toTypedArray()
+
+fun View.slideExit() {
+    if (translationY == 0f) animate().translationY(-height.toFloat())
+}
+
+
+fun View.slideEnter() {
+    if (translationY < 0f) animate().translationY(0f)
+
+}
+
