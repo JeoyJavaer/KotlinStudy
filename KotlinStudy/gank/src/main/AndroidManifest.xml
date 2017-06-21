@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
-          package="lech.gank"
-    >
+          package="lech.gank">
 
     <application
         android:name=".app.App"
@@ -17,6 +16,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.HistoryDetailActivity">
+        </activity>
+        <activity android:name=".ui.activity.PhotoActivity">
+        </activity>
+        <activity android:name=".ui.activity.ArticleDetailActivity">
         </activity>
     </application>
 

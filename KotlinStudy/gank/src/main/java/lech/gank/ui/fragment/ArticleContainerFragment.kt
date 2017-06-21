@@ -1,15 +1,21 @@
 package lech.gank.ui.fragment
 
 import android.app.Activity
-import android.app.Fragment
 import android.os.Bundle
+import android.support.design.widget.TabLayout
+import android.support.design.widget.TabLayout.MODE_SCROLLABLE
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_article_container.*
 import lech.gank.R
-import lech.gank.ui.activity.MainActivity
 import lech.gank.net.Api
 import lech.gank.repository.PublishedDate
+import lech.gank.ui.activity.MainActivity
+import lech.gank.ui.adapter.MainAdapter
+import lech.gank.utils.dismissProgress
+import lech.gank.utils.showProgress
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import java.text.SimpleDateFormat
@@ -44,17 +50,16 @@ class ArticleContainerFragment : Fragment() {
     private fun loadPublishedDate() {
         showProgress()
         val api = Api.Factory.create()
-        api.getPublishedDAte()
+        api.getPublishedDate()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-//                .subscribe(
-//                        {
-//                            result ->parseResult(result)
-//                        }
-//
-//                        {}
-//                        { onComplete() }
-//                )
+                .subscribe({
+                    result ->
+                    parseResult(result)
+                },
+                        {},
+                        { onComplete() }
+                )
 
     }
 
@@ -78,17 +83,34 @@ class ArticleContainerFragment : Fragment() {
     }
 
     private fun setUpView() {
-        val fragmetns = arrayListOf<Fragment>()
-        fragmetns.add(RecommendFragment.newInstance(published!!))
-        fragmetns.add(AndroidFrgment.newInstance())
-        fragmetns.add(IOSFragment.newInstance())
-        fragmetns.add(WebFragment.newInstance())
-        fragmetns.add(VideoFragment.newInstance())
-        fragmetns.add(ExpandFragment.newInstance())
+        val fragments = arrayListOf<Fragment>()
+        fragments.add(RecommendFragment.newInstance(published!!))
+        fragments.add(AndroidFrgment.newInstance())
+        fragments.add(IOSFragment.newInstance())
+        fragments.add(WebFragment.newInstance())
+        fragments.add(VideoFragment.newInstance())
+        fragments.add(ExpandFragment.newInstance())
 
-        val titles=resources.getString(R.array.title)
+        val titles = resources.getStringArray(R.array.title)
+        viewPager.adapter = MainAdapter(fragments, titles, childFragmentManager)
+        viewPager.offscreenPageLimit = 6
 
+        tabLayout.setupWithViewPager(viewPager)
+        tabLayout.tabMode = MODE_SCROLLABLE
 
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                viewPager.setCurrentItem(tab!!.position, false)
+            }
+
+        })
 
     }
 

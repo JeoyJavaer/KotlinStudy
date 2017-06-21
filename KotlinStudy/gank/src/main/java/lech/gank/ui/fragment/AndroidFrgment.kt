@@ -1,5 +1,7 @@
 package lech.gank.ui.fragment
 
+import lech.gank.common.Type
+
 /**
  * Created by Android_61 on 2017/6/9.
  * Description
@@ -13,4 +15,7 @@ class AndroidFrgment :ArticleFragment(){
         }
     }
 
+    override fun getType(): String {
+        return Type.Android.name
+    }
 }

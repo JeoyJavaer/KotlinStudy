@@ -8,7 +8,7 @@ import lech.gank.ui.fragment.ProgressFragment
  * Description
  * Others
  */
-class Utils {
+
 
 
     fun AppCompatActivity.showProgress() {
@@ -20,7 +20,6 @@ class Utils {
         (fragmentManager.findFragmentByTag(ProgressFragment::class.java.simpleName) as ProgressFragment?)?.dismiss()
     }
 
-    fun String.isEmpty(str: String): Boolean {
+    fun String.isEmpty(str: String?): Boolean {
         return str == null || str == ""
     }
-}

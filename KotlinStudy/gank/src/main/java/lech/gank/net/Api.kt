@@ -39,7 +39,7 @@ interface Api {
     fun getHistory(): Observable<ResponseBody>
 
     @GET("api/day/history")
-    fun getPublishedDAte(): Observable<PublishedDate>
+    fun getPublishedDate(): Observable<PublishedDate>
 
 
     companion object Factory{

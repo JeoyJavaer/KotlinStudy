@@ -7,9 +7,9 @@ import lech.gank.common.Type
  * Description
  * Others
  */
-class ExpandFragment :ArticleFragment() {
-    companion object{
-        fun newInstance():ExpandFragment{
+class ExpandFragment : ArticleFragment() {
+    companion object {
+        fun newInstance(): ExpandFragment {
             return ExpandFragment()
         }
     }
